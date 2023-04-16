@@ -17,6 +17,7 @@ import messagelogo from '../../assets/message.png'
 import instagramlogo from '../../assets/instagram.png'
 import linkedinLogo from '../../assets/linkedIn.png'
 import facebookLogo from '../../assets/facebook.png'
+import Line from '../../assets/landingPageLine.png'
 
 
 import { Link } from 'react-router-dom';
@@ -173,10 +174,14 @@ const Navbar = () => {
                 <p class="text-3xl ml-28 p-10 font-bold text-lg">01. Tune Your Skill Without Breakage </p>
 
                 <div class="flex flex-row items-center">
-                    <div class="flex-1">
-                        <p class="text-2xl ml-48">Find what you are interested to learn</p>
-                        <p class="text-2xl ml-48">online and choose what exactly best for</p>
-                        <p class="text-2xl ml-48">you that you really passionate.</p>
+                    <div class="flex ml-40">
+                        <img src={Line} alt="Line"/>
+                    </div>
+
+                    <div class="flex-1 ml-10">
+                        <p class="text-2xl">Find what you are interested to learn</p>
+                        <p class="text-2xl ">online and choose what exactly best for</p>
+                        <p class="text-2xl ">you that you really passionate.</p>
                     </div>
                     <div class="flex mr-60">
                         <img src={career} alt='' />
@@ -189,10 +194,13 @@ const Navbar = () => {
                 <p class="text-3xl ml-28 p-10 font-bold text-lg">02. Career Advancement Opportunity</p>
 
                 <div class="flex flex-row items-center">
-                    <div class="flex-1">
-                        <p class=" text-2xl ml-48">  Guidance from experts provide insights into</p>
-                        <p class=" text-2xl ml-48">the nature of thinking and problem solving.</p>
-                        <p class=" text-2xl ml-48">They can provide unique perspective.</p>
+                <div class="flex ml-40">
+                        <img src={Line} alt="Line"/>
+                    </div>
+                    <div class="flex-1 ml-10">
+                        <p class=" text-2xl ">  Guidance from experts provide insights into</p>
+                        <p class=" text-2xl ">the nature of thinking and problem solving.</p>
+                        <p class=" text-2xl ">They can provide unique perspective.</p>
                     </div>
                     <div class="flex mr-60">
                         <img src={skill} alt='' />
@@ -205,10 +213,13 @@ const Navbar = () => {
                 <p class="text-3xl ml-28 p-10 font-bold text-lg">03. Learn From Experts </p>
 
                 <div class="flex flex-row items-center">
-                    <div class="flex-1">
-                        <p class=" text-2xl ml-48"> Master your skill on your own schedule,</p>
-                        <p class=" text-2xl ml-48"> which can be clearly seen on your resume</p>
-                        <p class=" text-2xl ml-48">with valuable certificate.</p>
+                <div class="flex ml-40">
+                        <img src={Line} alt="Line"/>
+                    </div>
+                    <div class="flex-1 ml-10">
+                        <p class=" text-2xl "> Master your skill on your own schedule,</p>
+                        <p class=" text-2xl "> which can be clearly seen on your resume</p>
+                        <p class=" text-2xl ">with valuable certificate.</p>
 
                     </div>
                     <div class="flex mr-60">
