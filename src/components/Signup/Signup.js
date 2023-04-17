@@ -5,15 +5,14 @@ import Logo from '../../assets/logo.png'
 import google from '../../assets/google.png'
 import facebook from '../../assets/signUpFacebook.png'
 
-
 export default function Signup() {
     return (
         <div>
-            <div className='flex flex-row bg-purple-500'>
+            <div className='flex h-screen flex-row bg-purple-500'>
                 <div class="flex">
                     <img src={SingupBackImage} alt='' />
                 </div>
-                <div className='flex flex-col bg-white relative' style={{ borderTopLeftRadius: 40, borderBottomLeftRadius: 40, width: '80%' }}>
+                <div className='flex flex-col h-screen bg-white relative' style={{ borderTopLeftRadius: 40, borderBottomLeftRadius: 40, width: '80%' }}>
                     <div class=" flex justify-end mt-5 mr-24">
                         <Link to='/' className='text-3xl text-black'>&#10006;</Link>
                     </div>
