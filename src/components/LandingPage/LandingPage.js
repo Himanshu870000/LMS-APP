@@ -42,7 +42,7 @@ const Navbar = () => {
                         <img src={Logo} alt='' />
                     </div>
                     <input
-                        className="border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none "
+                        className="border-2 mt-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none "
                         type="search"
                         name="search"
                         placeholder="Search"

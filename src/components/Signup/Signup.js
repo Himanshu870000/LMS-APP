@@ -1,11 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SingupBackImage from '../../assets/signUpBack.png'
 import Logo from '../../assets/logo.png'
 import google from '../../assets/google.png'
 import facebook from '../../assets/signUpFacebook.png'
+import swal from 'sweetalert'
 
 export default function Signup() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+
+    const handleButtonClick = () => {
+        // Check if any input fields are empty
+        if (!name || !email || !password) {
+            swal({
+                title: "Please fill out all fields",
+                icon: "warning",
+            });
+            return;
+        }
+
+        swal({
+            title: "Sign up successful!",
+            text: "Now you can login",
+            icon: "success",
+           
+        }).then(() => {
+            // Redirect to login page after the success alert is closed
+            window.location.href = "/Login";
+        });
+    };
+
 
 
     return (
@@ -25,29 +52,53 @@ export default function Signup() {
 
                     <div class="flex flex-col ml-6 items-center">
                         <div class="flex flex-col w-1/2 mt-2 sm:grid-cols-2 mx-auto">
-                            <input type="text" class=" my-2 w-full bg-gray-200 rounded-md py-2 px-3" placeholder="Enter your name" />
-                            <input type="email" class="my-2 w-full bg-gray-200 rounded-md py-2 px-3" placeholder="Enter your email" />
-                            <input type="password" class="my-2 w-full bg-gray-200 rounded-md py-2 px-3" placeholder="Enter your password" />
-
-                            <Link to="/" class="bg-purple-500 flex justify-center items-center hover:bg-purple-700 text-white font-bold my-3 py-3 px-4 rounded-full">
-                                Signup
-                            </Link>
+                            <div>
+                                <input
+                                    type="text"
+                                    className="my-2 w-full bg-gray-200 rounded-md py-2 px-3"
+                                    placeholder="Enter your name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                                <input
+                                    type="email"
+                                    className="my-2 w-full bg-gray-200 rounded-md py-2 px-3"
+                                    placeholder="Enter your email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <input
+                                    type="password"
+                                    className="my-2 w-full bg-gray-200 rounded-md py-2 px-3"
+                                    placeholder="Enter your password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <div className='mt-3'>
+                                    <button
+                                        onClick={handleButtonClick}
+                                        class="inline-block w-full px-6 py-3 mb-0 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-full cursor-pointer hover:scale-102 active:opacity-85 hover:shadow-soft-xs bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25"
+                                    >
+                                        Signup
+                                    </button>
+                                </div>
+                            </div>
 
                             <p className=' text-center text-gray-500 mt-2'>--------------- or Sign Up With ---------------</p>
 
                             <div class="flex flex-row justify-center items-center">
                                 <div class="flex flex-col mx-10 mt-4">
                                     <img style={{ height: '100%', width: '50%' }} class="mx-auto" src={google} alt='' />
-                                    <p style={{fontWeight:500}} className='text-1xl'>Google</p>
+                                    <p style={{ fontWeight: 500 }} className='text-1xl'>Google</p>
                                 </div>
                                 <div class="flex flex-col mx-10 mt-4">
                                     <img style={{ height: '40%', width: '40%' }} class="mx-auto" src={facebook} alt='' />
-                                    <p style={{fontWeight:500}} className='text-1xl'>Facebook</p>
+                                    <p style={{ fontWeight: 500 }} className='text-1xl'>Facebook</p>
                                 </div>
                             </div>
                             <div className='flex flex-row justify-center p-5 items-center'>
-                                <p style={{fontSize:13, fontWeight:500}} className=' mx-1'>Already have an account ? </p>
-                                <Link to='/login' style={{fontSize:16}} className=' text-xl text-blue-600'> Login</Link>
+                                <p style={{ fontSize: 13, fontWeight: 500 }} className=' mx-1'>Already have an account ? </p>
+                                <Link to='/login' style={{ fontSize: 16 }} className=' text-xl text-blue-600'> Login</Link>
                             </div>
 
                         </div>
