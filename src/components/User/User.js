@@ -24,7 +24,7 @@ import { useMediaQuery } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
-const Navbar = () => {
+const HomePage = () => {
 
     const matches = useMediaQuery('(max-width: 600px)');
     const [showMenu, setShowMenu] = useState(false);
@@ -429,4 +429,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default HomePage

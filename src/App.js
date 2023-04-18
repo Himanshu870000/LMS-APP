@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Navbar from './components/LandingPage/LandingPage';
 import SelectType from './components/Signup/SelectType';
+import HomePage from './components/User/User';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/SelectType" element={<SelectType/>}/>
+        <Route path="/HomePage" element={<HomePage/>}/>
       </Routes>
     </Router>
   );
