@@ -25,7 +25,7 @@ export default function Signup() {
             <Link to='/' className='text-xl text-black'>&#10006;</Link>
           </div>
           <div class="flex justify-end mt-4">
-            <img style={{ height: "80%", width: '10%' }} class="mx-auto" src={Logo} alt='' />
+            <img style={{ height: "70%", width: '10%' }} class="mx-auto" src={Logo} alt='' />
           </div>
           <p className=' text-center p-7 ml-5 text-2xl font-medium'>Login</p>
 
@@ -36,9 +36,10 @@ export default function Signup() {
                 <input type="password" name="password" className="my-2 w-full bg-gray-200 rounded-md py-2 px-3" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" required />
                 <Link className="underline decoration-solid p-3 text-blue-500 hover:text-black">Forgot Password</Link>
 
-                <Link to='/HomePage' type="submit" className="bg-purple-500 w-full flex justify-center items-center hover:bg-purple-700 text-white font-bold my-3 py-3 px-4 rounded">
+                <Link to='/HomePage' type="submit" className="bg-purple-500 w-full flex justify-center items-center hover:bg-purple-700 text-white font-bold my-3 py-3 px-4 rounded-full">
                   Login
                 </Link>
+
               </form>
 
 
@@ -47,17 +48,17 @@ export default function Signup() {
 
               <div class="flex flex-row justify-center items-center">
                 <div class="flex flex-col mx-10 mt-4">
-                  <img style={{height:'100%',width:'50%'}} class="mx-auto" src={google} alt='' />
-                  <p className='text-1xl font-bold'>Google</p>
+                  <img style={{ height: '100%', width: '50%' }} class="mx-auto" src={google} alt='' />
+                  <p style={{fontWeight:500}} className='text-1xl'>Google</p>
                 </div>
                 <div class="flex flex-col mx-10 mt-4">
-                  <img style={{height:'40%', width:'40%'}} class="mx-auto" src={facebook} alt='' />
-                  <p className='text-1xl font-bold'>Facebook</p>
+                  <img style={{ height: '40%', width: '40%' }} class="mx-auto" src={facebook} alt='' />
+                  <p style={{fontWeight:500}} className='text-1xl'>Facebook</p>
                 </div>
               </div>
               <div className='flex flex-row justify-center p-5 items-center'>
-                <p className=' mx-1'>Don't have an account ? </p>
-                <Link to='/Signup' className=' text-xl text-blue-600'>Sign Up</Link>
+                <p style={{fontSize:13, fontWeight:500}} className=' mx-1'>Don't have an account ? </p>
+                <Link to='/Signup' style={{fontSize:16}} className=' text-xl text-blue-600'>Sign Up</Link>
               </div>
 
             </div>
