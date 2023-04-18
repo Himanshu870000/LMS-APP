@@ -6,7 +6,7 @@ import google from '../../assets/google.png'
 import facebook from '../../assets/signUpFacebook.png'
 // import { unstable_HistoryRouter } from 'react-router-dom'
 
-export default function Signup() {
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
