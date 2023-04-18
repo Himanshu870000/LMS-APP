@@ -14,7 +14,7 @@ import skill from '../../assets/skill.png'
 import experts from '../../assets/experts.png'
 import messageicon from '../../assets/messageIcon.png'
 import callLogo from '../../assets/call.png'
-import messagelogo from '../../assets/message.png'
+import messageLogo from '../../assets/message.png'
 import instagramlogo from '../../assets/instagram.png'
 import linkedinLogo from '../../assets/linkedIn.png'
 import facebookLogo from '../../assets/facebook.png'
@@ -42,7 +42,7 @@ const HomePage = () => {
                         <img src={Logo} alt='' />
                     </div>
                     <input
-                        className="border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none "
+                        className="border-2 mt-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none "
                         type="search"
                         name="search"
                         placeholder="Search"
@@ -100,14 +100,14 @@ const HomePage = () => {
                     </div>
                     <div className="relative mx-auto text-gray-600 lg:block hidden">
                         <Link
-                            to="/login"
+                            to="/SelectTypeLogin"
                             className="bg-purple-500 hover:bg-purple-700 text-white font-bold mr-8 py-2 px-4 rounded"
                         >
                             Login
                         </Link>
 
 
-                        <Link to="/SelectType" className="bg-purple-500 hover:bg-purple-700 text-white font-bold mr-8 py-2 px-4 rounded">
+                        <Link to="/SelectTypeSignup" className="bg-purple-500 hover:bg-purple-700 text-white font-bold mr-8 py-2 px-4 rounded">
                             Signup
                         </Link>
 
@@ -227,139 +227,135 @@ const HomePage = () => {
             </div>
 
 
-            <p class=" text-center text-3xl p-5 font-bold text-lg">We will help you learn</p>
+            <p class=" text-center text-3xl p-5 font-bold">We will help you Learn</p>
 
-            <div class="flex flex-col">
-                <p class="text-3xl ml-28 p-10 font-bold text-lg">01. Tune Your Skill Without Breakage </p>
+            <div class="grid grid-cols-6 gap-4">
+                <div class="flex flex-col col-start-2 col-span-4">
+                    <p class="text-3xl p-10 font-bold">01. Tune Your Skill Without Breakage </p>
 
-                <div class="flex flex-row items-center">
-                    <div class="flex ml-40">
-                        <img src={Line} alt="Line" />
-                    </div>
+                    <div class="flex flex-row items-center">
+                        <div class="flex ml-12">
+                            <img src={Line} alt="Line" />
+                        </div>
 
-                    <div class="flex-1 ml-10">
-                        <p class="text-2xl">Find what you are interested to learn</p>
-                        <p class="text-2xl ">online and choose what exactly best for</p>
-                        <p class="text-2xl ">you that you really passionate.</p>
-                    </div>
-                    <div class="flex mr-60">
-                        <img src={career} alt='' />
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="flex flex-col">
-                <p class="text-3xl ml-28 p-10 font-bold text-lg">02. Career Advancement Opportunity</p>
-
-                <div class="flex flex-row items-center">
-                    <div class="flex ml-40">
-                        <img src={Line} alt="Line" />
-                    </div>
-                    <div class="flex-1 ml-10">
-                        <p class=" text-2xl ">  Guidance from experts provide insights into</p>
-                        <p class=" text-2xl ">the nature of thinking and problem solving.</p>
-                        <p class=" text-2xl ">They can provide unique perspective.</p>
-                    </div>
-                    <div class="flex mr-60">
-                        <img src={skill} alt='' />
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="flex flex-col">
-                <p class="text-3xl ml-28 p-10 font-bold text-lg">03. Learn From Experts </p>
-
-                <div class="flex flex-row items-center">
-                    <div class="flex ml-40">
-                        <img src={Line} alt="Line" />
-                    </div>
-                    <div class="flex-1 ml-10">
-                        <p class=" text-2xl "> Master your skill on your own schedule,</p>
-                        <p class=" text-2xl "> which can be clearly seen on your resume</p>
-                        <p class=" text-2xl ">with valuable certificate.</p>
-
-                    </div>
-                    <div class="flex mr-60">
-                        <img src={experts} alt='' />
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="flex ml-44 p-5">
-
-                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold mr-8 py-2 px-4 rounded">
-                    Login
-                </button>
-
-                <button class="bg-white border-solid hover:bg-purple-700  text-purple-500 font-bold mr-8 py-2 px-4 rounded">
-                    Signup
-                </button>
-
-            </div>
-
-            <div class="flex flex-col justify-center h-full mt-10 bg-purple-500 bg-opacity-50">
-
-                <div class="flex flex-row items-center">
-
-                    <div class="flex-1">
-
-
-                        <p class=" text-left text-3xl mt-20 font-bold ml-48" > Write to us</p>
-
-
-                        <div class="w-full max-w-sm mt-10 ml-40">
-                            <div class="md:flex md:items-center mb-6">
-                                <div class="md:w-1/3">
-                                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
-                                        Name
-                                    </label>
-                                </div>
-                                <div class="md:w-2/3">
-                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" defaultValue="" />
-                                </div>
-                            </div>
-
-
-                            <div class="md:flex md:items-center mb-6">
-                                <div class="md:w-1/3">
-                                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-password">
-                                        Email
-                                    </label>
-                                </div>
-                                <div class="md:w-2/3">
-                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="Email" type="Email" placeholder="" />
-                                </div>
-                            </div>
-                            <div class="md:flex md:items-center mb-6">
-                                <div class="md:w-1/3">
-                                    <label class="block text-gray-500 font-bold md:text-right md:mb-0 pr-4" htmlFor="inline-Message">
-                                        Message
-                                    </label>
-                                </div>
-                                <div class="md:w-2/3">
-                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 h-36 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-Message" type="text" defaultValue="" />
-                                </div>
-                            </div>
-
-                            <div class="md:flex mb-20 md:items-center">
-                                <div class="md:w-1/3"></div>
-                                <div class="md:w-2/3">
-                                    <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                                        Send
-                                    </button>
-                                </div>
-                            </div>
+                        <div class="flex-1 ml-10">
+                            <p class="text-2xl">Find what you are interested to learn</p>
+                            <p class="text-2xl ">online and choose what exactly best for</p>
+                            <p class="text-2xl ">you that you really passionate.</p>
+                        </div>
+                        <div class="flex ">
+                            <img src={career} alt='' />
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="flex mx-36">
-                        <img src={messageicon} alt='' />
+            <div class="grid grid-cols-6 gap-4">
+                <div class="flex flex-col col-start-2 col-span-4">
+                    <p class="text-3xl p-10 font-bold">02. Career Advancement Opportunity</p>
+
+                    <div class="flex flex-row items-center">
+                        <div class="flex ml-12">
+                            <img src={Line} alt="Line" />
+                        </div>
+                        <div class="flex-1 ml-10">
+                            <p class=" text-2xl ">  Guidance from experts provide insights into</p>
+                            <p class=" text-2xl ">the nature of thinking and problem solving.</p>
+                            <p class=" text-2xl ">They can provide unique perspective.</p>
+                        </div>
+                        <div class="flex ">
+                            <img src={skill} alt='' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-6 gap-4">
+                <div class="flex flex-col col-start-2 col-span-4">
+                    <p class="text-3xl p-10 font-bold ">03. Learn From Experts </p>
+
+                    <div class="flex flex-row items-center">
+                        <div class="flex-1 ml-20">
+                            <p class=" text-2xl "> Master your skill on your own schedule,</p>
+                            <p class=" text-2xl "> which can be clearly seen on your resume</p>
+                            <p class=" text-2xl ">with valuable certificate.</p>
+
+                        </div>
+                        <div class="flex ">
+                            <img src={experts} alt='' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="grid grid-cols-6 gap-4">
+
+                <div class="flex ml-10 p-5 col-start-2 col-span-4">
+
+                    <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold mr-8 py-2 px-4 rounded">
+                        Login
+                    </button>
+
+                    <button class="bg-white border-solid hover:bg-purple-700  text-purple-500 font-bold mr-8 py-2 px-4 rounded">
+                        Signup
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="flex flex-col justify-center  h-full mt-10 bg-purple-500 bg-opacity-50">
+
+                <div class="grid grid-cols-6 gap-4">
+
+                    <div class="flex flex-row  items-center col-start-2 col-span-4">
+
+
+                        <div className='flex-1 flex-col '>
+                            <p class=" text-left ml-20 text-3xl mt-10 mb-6 font-bold " > Write to us</p>
+
+
+                            <div class="w-full ml-20 mb-16 max-w-xs">
+                                <form class="bg-white shadow-md rounded px-12 py-20 pt-4 pb-4 mb-4">
+                                    <div class="mb-4">
+                                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                                            Name
+                                        </label>
+                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Name" />
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                                            Email
+                                        </label>
+                                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="Email" type="Email" placeholder='Email' />
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                                            Message
+                                        </label>
+                                        <input class="shadow appearance-none border rounded w-full h-20 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
+                                    </div>
+                                    <div class="flex justify-end items-end">
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                            Send
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="flex mt-10 w-1/3">
+                            <img style={{ height: '100%', width: '80%' }} src={messageicon} alt='' />
+                        </div>
+
                     </div>
 
                 </div>
+
             </div>
 
 
@@ -370,44 +366,44 @@ const HomePage = () => {
 
                     {/* 1st Logo in footer */}
 
-                    <div className=" mx-28  md:my-0">
+                    <div className=" w-1/4 mx-28  md:my-0">
                         <img src={Logo} alt='' />
                     </div>
 
                     {/* 2nd Column in footer */}
 
-                    <div className={`flex flex-col md:flex-col mx-20 ${matches ? 'my-5' : 'my-3'}`}>
+                    <div className={`flex w-1/4 flex-col md:flex-col mx-20 ${matches ? 'my-5' : 'my-3'}`}>
                         <p className="flex text-white md:my-0 md:mx-5">About Us</p>
-                        <p className="flex text-white mt-5 md:mx-5">Career</p>
+                        <p className="flex text-white my-2 md:mx-5">Career</p>
                     </div>
 
                     {/* 3rd column in footer */}
 
-                    <div className={`flex flex-col md:flex-col mx-20 ${matches ? 'my-5' : 'my-3'}`}>
-                        <p className=" text-white md:my-0 md:mx-5">Term &amp; conditions</p>
-                        <p className=" text-white md:my-4 md:mx-5">Privacy policy</p>
-                        <p className="text-white md:mx-5">Help and Support</p>
+                    <div className={`flex w-1/4 flex-col md:flex-col mx-20 ${matches ? 'my-5' : 'my-3'}`}>
+                        <p className=" text-white md:my-0 md:mx-0">Term &amp; conditions</p>
+                        <p className=" text-white  md:my-2 md:mx-0">Privacy policy</p>
+                        <p className="text-white  md:mx-0">Help and Support</p>
                     </div>
 
 
 
                     {/* Conact us column in footer */}
 
-                    <div className={`flex flex-col md:flex-col mx-20 ${matches ? 'my-5' : 'my-3'}`}>
-                        <p className=" text-white md:my-2 md:mx-5">Contact Us</p>
-                        <div className="flex flex-row my-3 md:my-3 md:mx-5">
+                    <div className={`flex w-1/4 flex-col md:flex-col mx-20 ${matches ? 'my-5' : 'my-3'}`}>
+                        <p className=" text-white md:my-2  md:mx-3">Contact Us</p>
+                        <div className="flex flex-row my-3 md:my-3 md:mx-0">
                             <div className="flex mx-1">
                                 <img src={callLogo} alt='' />
                             </div>
                             <p className="" style={{ color: '#fff' }}>+91 987654321</p>
                         </div>
-                        <div className="flex flex-row my-3 md:my-2 md:mx-5">
-                            <div className="flex mx-1">
-                                <img src={messagelogo} alt='' />
+                        <div className="flex flex-row my-3  md:my-3 md:mx-0">
+                        <div className="flex mx-1">
+                                <img src={messageLogo} alt='' />
                             </div>
                             <p className="" style={{ color: '#fff' }}>lms.info@gmail.com</p>
                         </div>
-                        <div className="flex flex-row my-3 md:my-5 md:mx-5">
+                        <div className="flex flex-row my-3 md:my-5 md:mx-0">
                             <div className="flex mx-3">
                                 <img src={facebookLogo} alt='' />
                             </div>

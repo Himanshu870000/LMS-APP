@@ -33,8 +33,6 @@ export default function Signup() {
         });
     };
 
-
-
     return (
         <div>
             <div className="flex flex-row h-screen bg-purple-500">
