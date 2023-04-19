@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import loginBack from '../../assets/loginBack.png'
 import Logo from '../../assets/logo.png'
 import google from '../../assets/google.png'
@@ -9,7 +9,7 @@ import facebook from '../../assets/signUpFacebook.png'
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [redirectToHome, setRedirectToHome] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -17,13 +17,17 @@ export default function Login() {
       // do something with email and password, like log in the user
       console.log("Email:", email);
       console.log("Password:", password);
-      
-      window.location.href = "/HomePage";
+      setRedirectToHome(true);
+
     } else {
       // show error message
       alert("Please enter your email and password.");
     }
   }
+
+  if (redirectToHome) {
+    return <Navigate to="/HomePage" />;
+}
 
 
   return (
