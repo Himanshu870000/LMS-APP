@@ -1,7 +1,17 @@
-import React, {  } from 'react';
+import React, { useState } from 'react';
 import Logo from '../../assets/logo.png'
-// import { Link } from 'react-router-dom';
 import dashDp from '../../assets/dashDP.png'
+import notification from '../../assets/notification.png'
+import chatIcon from '../../assets/chatIcon.png'
+import { Link } from 'react-router-dom';
+import Dashboard from './Dashboard/Dashboard';
+import MyCourses from './MyCourses/myCourses';
+import Revenue from './Revenue/Revenue';
+import Engagement from './Engagement/Engagement';
+import Messages from './Messages/Messages';
+import Announcement from './Announcement/Announcement';
+import UserActivity from './UserActivity/UserActivity';
+import DropIcon from '../../assets/dropDownIcon.png'
 
 const HomePage = () => {
 
@@ -11,11 +21,23 @@ const HomePage = () => {
     //     setShowMenu(!showMenu);
     // };
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    function toggleDropdown() {
+        setIsOpen(!isOpen);
+    }
+
+    const [activeMenu, setActiveMenu] = useState("dashboard");
+
+    const handleMenuClick = (menu) => {
+        setActiveMenu(menu);
+    };
+
+
 
     return (
         <div>
-
-            <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <nav class="fixed top-0 z-50 w-full shadow-md bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <div class="px-3 py-4 lg:px-5 lg:pl-3">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center justify-start">
@@ -29,147 +51,167 @@ const HomePage = () => {
                                 <img className='w-24 h-8' src={Logo} alt='' />
                             </div>
                         </div>
-                        <div class="flex items-center">
-                            <div class="flex items-center ml-3">
-                                <div>
-                                    <button type="button" class="flex text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                                        <span class="sr-only">Open user menu</span>
-                                        <div className="flex items-center flex-shrink-0 text-purple-800 ml-16">
-                                            <img className='w-10 h-10' src={dashDp} alt='' />
-                                        </div>
-                                    </button>
+
+                        <div className=''>
+                            <input
+                                className="border-2 w-full sm:w-3/4 md:w-96 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
+                                type="search"
+                                name="search"
+                                placeholder="Search"
+                            >
+                            </input>
+                        </div>
+
+
+                        <div className='flex ' style={{ justifyContent: 'space-between' }}>
+                            <p className=' flex-1 text-black font-bold text-xl'>Home</p>
+
+
+                        </div>
+
+                        <div className='flex flex-row'>
+                            <img className=' w-6.5 h-6 mr-3' src={chatIcon} alt='' />
+                            <img className=' w-6 h-7 ' src={notification} alt='' />
+
+                        </div>
+
+                        <div className="relative">
+                            <button
+                                type="button"
+                                className="flex text-sm"
+                                aria-expanded={isOpen}
+                                onClick={toggleDropdown}
+                            >
+                                <span className="sr-only">Open user menu</span>
+                                <div className="flex flex-row items-center flex-shrink-0 text-purple-800 mr-10">
+                                    <img className="w-10 h-10" src={dashDp} alt="" />
+                                    <img className="" src={DropIcon} alt="" />
+
+
                                 </div>
-                                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
-                                    <div class="px-4 py-3" role="none">
-                                        <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                            Neil Sims
-                                        </p>
-                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                            neil.sims@flowbite.com
-                                        </p>
-                                    </div>
-                                    <ul class="py-1" role="none">
-                                        <li>
-                                            <p href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</p>
-                                        </li>
-                                        <li>
-                                            <p href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</p>
-                                        </li>
-                                        <li>
-                                            <p href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Earnings</p>
-                                        </li>
-                                        <li>
-                                            <p href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</p>
-                                        </li>
-                                    </ul>
-                                </div>
+                            </button>
+                            <div
+                                className={`absolute right-0 mt-2 w-48 ${isOpen ? '' : 'hidden'} py-1 bg-white rounded-md shadow-lg`}
+                                role="menu"
+                                aria-orientation="vertical"
+                                aria-labelledby="user-menu"
+                            >
+                                <p
+                                    href="#"
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    role="menuitem"
+                                >
+                                    Dashboard
+                                </p>
+                                <p
+                                    href="#"
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    role="menuitem"
+                                >
+                                    Settings
+                                </p>
+                                <p
+                                    href="#"
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    role="menuitem"
+                                >
+                                    Earnings
+                                </p>
+                                <p
+                                    href="#"
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    role="menuitem"
+                                >
+                                    Sign out
+                                </p>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </nav>
 
-            <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-slate-700 border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
-                <div class="h-full px-3 pb-4 overflow-y-auto bg-slate-700 dark:bg-gray-800">
+
+
+            <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-slate-900 border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+                <div class="h-full px-3 pb-4 overflow-y-auto bg-slate-900 dark:bg-gray-800">
                     <ul class="space-y-2 font-medium">
                         <li>
-                            <p href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <svg aria-hidden="true" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+                            <Link onClick={() => handleMenuClick("dashboard")}
+                                class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-500 dark:hover:bg-gray-700" data-target="dashboard">
+                                <svg aria-hidden="true" class="w-6 h-6 text-white transition duration-75 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
                                 <span class="ml-3">Dashboard</span>
-                            </p>
+                            </Link>
                         </li>
                         <li>
-                            <p href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                            <Link onClick={() => handleMenuClick("myCourses")}
+                                class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-500 dark:hover:bg-gray-700" data-target="my-courses">
+                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
                                 <span class="flex-1 ml-3 whitespace-nowrap">My Courses</span>
-                            </p>
+                            </Link>
                         </li>
                         <li>
-                            <p href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
+                            <Link onClick={() => handleMenuClick("Messages")}
+                                class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-500 dark:hover:bg-gray-700">
+                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
                                 <span class="flex-1 ml-3 whitespace-nowrap">Messages</span>
-                            </p>
+                            </Link>
                         </li>
                         <li>
-                            <p href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                            <Link onClick={() => handleMenuClick("Engagement")}
+                                class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-purple-500 dark:hover:bg-gray-700">
+                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                                 <span class="flex-1 ml-3 whitespace-nowrap">Engagement</span>
-                            </p>
+                            </Link>
                         </li>
                         <li>
-                            <p href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
+                            <Link onClick={() => handleMenuClick("UserActivity")}
+                                class="flex items-center p-2  text-white rounded-lg dark:text-white hover:bg-purple-500 dark:hover:bg-gray-700">
+                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
                                 <span class="flex-1 ml-3 whitespace-nowrap">User Activity</span>
-                            </p>
+                            </Link>
                         </li>
                         <li>
-                            <p href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
+                            <Link onClick={() => handleMenuClick("Revenue")}
+                                class="flex items-center p-2  text-white rounded-lg dark:text-white hover:bg-purple-500 dark:hover:bg-gray-700">
+                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
                                 <span class="flex-1 ml-3 whitespace-nowrap">Revenue</span>
-                            </p>
+                            </Link>
                         </li>
                         <li>
-                            <p href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>
+                            <Link onClick={() => handleMenuClick("Announcement")}
+                                class="flex items-center p-2  text-white rounded-lg dark:text-white hover:bg-purple-500 dark:hover:bg-gray-700">
+                                <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>
                                 <span class="flex-1 ml-3 whitespace-nowrap">Announcement</span>
-                            </p>
+                            </Link>
                         </li>
                     </ul>
                 </div>
             </aside>
 
             <div class="p-4 sm:ml-64">
-                <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-                    <div class="grid grid-cols-3 gap-4 mb-4">
-                        <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                        <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                        <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
-                        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
-                        </div>
+                <div class="p-4  rounded-lg dark:border-gray-700 mt-14">
+
+                    <div className="w-3/4">
+                        {activeMenu === "dashboard" ? (
+                            <Dashboard />
+                        ) : activeMenu === "myCourses" ? (
+                            <MyCourses />
+                        ) : activeMenu === "Revenue" ? (
+                            <Revenue />
+                        ) : activeMenu === "Engagement" ? (
+                            <Engagement />
+                        ) : activeMenu === "Messages" ? (
+                            <Messages />
+                        ) : activeMenu === "Announcement" ? (
+                            <Announcement />
+                        ) : activeMenu === "UserActivity" ? (
+                            <UserActivity />
+                        ) : null}
                     </div>
                 </div>
             </div>
-
         </div>
-
     )
 }
 
