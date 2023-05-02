@@ -149,7 +149,7 @@ const Navbar = () => {
                         <select className=" w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-gray-600">
                             <option>Design</option>
                             <option>Development</option>
-                            <option>It 7 Software</option>
+                            <option>IT & Software</option>
                             <option>Bussiness</option>
                             <option>Marketing</option>
                             <option>Photography</option>
@@ -366,7 +366,7 @@ const Navbar = () => {
 
                     {/* 1st Logo in footer */}
 
-                    <div className=" w-1/4 mx-28  md:my-0">
+                    <div className=" w-1/4 mx-20  md:my-0">
                         <img src={Logo} alt='' />
                     </div>
 
