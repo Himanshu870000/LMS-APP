@@ -1,6 +1,6 @@
 /**
  * Author : Himanshu Tripathi
- * description: entry point for the react native app
+ * description: entry point for the react  WebApp
  */
 
 import React from 'react';
