@@ -1,6 +1,6 @@
 import React, { } from 'react';
 
-const Engagement = () => {
+const DemoVideo = () => {
 
 
 
@@ -8,11 +8,11 @@ const Engagement = () => {
         <div className=' justify-center justify-items-center'>
 
             <div>
-                <p className=' text-2xl text-black font-bold'>Course Engagement</p>
+                <p className=' text-2xl text-black font-bold'>DemoVideo</p>
             </div>
 
         </div>
     )
 }
 
-export default Engagement
+export default DemoVideo
