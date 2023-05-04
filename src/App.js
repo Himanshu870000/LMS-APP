@@ -42,7 +42,7 @@ const App = () => {
           <Route path='Messages' element={<postMessage />} />
           <Route path='UserActivity' element={<UserActivity />} />
         </Route>
-        <Route path='CreateCourses' element={<CreateCourses/>}>
+        <Route path='/CreateCourses' element={<CreateCourses/>}>
           <Route path='CourseDescription' element={<CourseDescription/>}/>
           <Route path='CourseHeader' element={<CourseHeader/>}/>
           <Route path='CourseLanding' element={<CourseLanding/>}/>

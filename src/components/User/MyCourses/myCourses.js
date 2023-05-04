@@ -4,14 +4,16 @@ import courseDp from '../../../assets/instructorCourseCard.png'
 
 const MyCourses = () => {
 
+    
+
     const [selectedOption, setSelectedOption] = useState("active");
 
     return (
         <div className=' justify-center justify-items-center'>
 
-            <div className='flex flex-row mt-10' style={{ width: '120%' }}>
+            <div className='flex flex-row mt-10' style={{ width: '130%' }}>
                 <p className='text-2xl text-black font-bold'>My courses</p>
-                <Link to='/CreateCourses' className='h-10 hover:opacity-60 w-28 bg-purple-600 rounded-md ml-auto flex justify-center items-center'>
+                <Link to='/CreateCourses' className='h-9 hover:opacity-60 w-28 bg-purple-600 rounded-md ml-auto flex justify-center items-center'>
                     <p className='text-white font-medium text-xs hover:opacity-70'>
                         Create Course
                     </p>
@@ -109,8 +111,6 @@ const MyCourses = () => {
                                 </div>
 
                             </div>
-
-
                             <div className='py-2 mr-2 text-black text-sm font-medium' style={{ gridColumn: '2/3' }}>
                                 Development
                             </div>

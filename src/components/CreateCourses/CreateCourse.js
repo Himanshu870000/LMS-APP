@@ -179,18 +179,24 @@ const CreateCourses = () => {
                 <div class="p-4  rounded-lg dark:border-gray-700 mt-14">
 
                     <div className="w-3/4">
-                        {activeMenu === "CourseDescription" ? (
-                            <CourseDescription />
-                        ) : activeMenu === "CourseHeader" ? (
-                            <CourseHeader />
-                        ) : activeMenu === "CourseLanding" ? (
-                            <CourseLanding />
-                        ) : activeMenu === "Curiculum" ? (
-                            <Curiculum />
-                        ) : activeMenu === "DemoVideo" ? (
-                            <DemoVideo />
-                        ) : null}
+                        {(() => {
+                            switch (activeMenu) {
+                                case "CourseDescription":
+                                    return <CourseDescription />;
+                                case "CourseHeader":
+                                    return <CourseHeader handleMenuClick={handleMenuClick} />;
+                                case "CourseLanding":
+                                    return <CourseLanding />;
+                                case "Curiculum":
+                                    return <Curiculum />;
+                                case "DemoVideo":
+                                    return <DemoVideo />;
+                                default:
+                                    return null;
+                            }
+                        })()}
                     </div>
+
                 </div>
             </div>
         </div>
